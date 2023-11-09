@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "0Xsy8HQCpyz4gj8g2obS8z6UWPm42enWDaaiMJ4ccZHk9jPG1zsbsSYe6M0BcYWfcYpa7we8eAn9zc0/EfTyfw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jimci\\OneDrive\\Desktop\\Code\\Youtube\\Youtube.vbproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jimci\\.nuget\\packages\\anglesharp\\1.0.4\\anglesharp.1.0.4.nupkg.sha512",
+    "C:\\Users\\jimci\\.nuget\\packages\\nreco.videoconverter\\1.2.1\\nreco.videoconverter.1.2.1.nupkg.sha512",
+    "C:\\Users\\jimci\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\jimci\\.nuget\\packages\\system.text.encoding.codepages\\6.0.0\\system.text.encoding.codepages.6.0.0.nupkg.sha512",
+    "C:\\Users\\jimci\\.nuget\\packages\\youtubeexplode\\6.3.6\\youtubeexplode.6.3.6.nupkg.sha512"
+  ],
+  "logs": []
+}
