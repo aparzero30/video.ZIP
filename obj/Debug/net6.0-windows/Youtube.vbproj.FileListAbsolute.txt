@@ -14,9 +14,11 @@ C:\Users\jimci\OneDrive\Desktop\Code\Youtube\obj\Debug\net6.0-windows\refint\You
 C:\Users\jimci\OneDrive\Desktop\Code\Youtube\obj\Debug\net6.0-windows\Youtube.pdb
 C:\Users\jimci\OneDrive\Desktop\Code\Youtube\obj\Debug\net6.0-windows\Youtube.genruntimeconfig.cache
 C:\Users\jimci\OneDrive\Desktop\Code\Youtube\obj\Debug\net6.0-windows\ref\Youtube.dll
-C:\Users\jimci\OneDrive\Desktop\Code\Youtube\bin\Debug\net6.0-windows\AngleSharp.dll
-C:\Users\jimci\OneDrive\Desktop\Code\Youtube\bin\Debug\net6.0-windows\YoutubeExplode.dll
 C:\Users\jimci\OneDrive\Desktop\Code\Youtube\obj\Debug\net6.0-windows\Youtube.vbproj.AssemblyReference.cache
 C:\Users\jimci\OneDrive\Desktop\Code\Youtube\obj\Debug\net6.0-windows\Youtube.vbproj.CopyComplete
 C:\Users\jimci\OneDrive\Desktop\Code\Youtube\bin\Debug\net6.0-windows\NReco.VideoConverter.dll
 C:\Users\jimci\OneDrive\Desktop\Code\Youtube\obj\Debug\net6.0-windows\Youtube.Resources.resources
+C:\Users\jimci\OneDrive\Desktop\Code\Youtube\bin\Debug\net6.0-windows\Guna.UI2.dll
+C:\Users\jimci\OneDrive\Desktop\Code\Youtube\bin\Debug\net6.0-windows\System.Management.dll
+C:\Users\jimci\OneDrive\Desktop\Code\Youtube\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Management.dll
+C:\Users\jimci\OneDrive\Desktop\Code\Youtube\bin\Debug\net6.0-windows\Newtonsoft.Json.dll

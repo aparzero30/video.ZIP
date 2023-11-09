@@ -1,25 +1,62 @@
 ﻿Imports System.IO
+Imports System.Net.Http
+Imports AngleSharp.Media
+Imports Newtonsoft.Json
 Imports NReco.VideoConverter
-
+Imports YoutubeExplode
 
 Public Class Youtube
 
 
 
 
+    Private musicService As New MusicService()
+
+
+
+    Public Sub DownloadVideo(videoUrl As String, outputDirectory As String, isMP3 As Boolean, videoDetails As YoutubeResponse)
 
 
 
 
-    Public Sub DownloadVideo(videoUrl As String, outputDirectory As String, isMP3 As Boolean)
+
+
         Try
             ' Define the path to the yt-dlp executable (yt-dlp.exe)
             Dim commandPath As String = Path.Combine(Application.StartupPath, "runner", "yt-dlp.exe")
+            Dim processPath As String = Path.Combine(Application.StartupPath, "proc")
+
+
+
+
+
+
+
+
+
+
+
+
+            If Not isMP3 Then
+
+                Dim authorFolder = Path.Combine(outputDirectory, videoDetails.author_name)
+                If Not Directory.Exists(authorFolder) Then
+                    Directory.CreateDirectory(authorFolder)
+                End If
+                processPath = authorFolder
+            End If
+
+
+
+
+
+
+
 
 
 
             ' Create the command with output directory
-            Dim command As String = $"--output ""{outputDirectory}\%(title)s.%(ext)s"" {videoUrl}"
+            Dim command As String = $"--output ""{processPath}\%(title)s.%(ext)s"" {videoUrl}"
 
             ' Create a ProcessStartInfo to specify the executable and arguments
             Dim psi As New ProcessStartInfo()
@@ -52,7 +89,8 @@ Public Class Youtube
                 ' MessageBox.Show("Download completed successfully.", output)
                 'if isMP3 true convert the download video to mp3 then delete t
                 If isMP3 Then
-                    ConvertToMP3(outputDirectory)
+                    ' ConvertToMP3(outputDirectory)
+                    musicService.ConvertToMP3(processPath, outputDirectory, videoDetails)
                 Else
                     MessageBox.Show("Download Complete")
                 End If
@@ -67,31 +105,45 @@ Public Class Youtube
 
 
 
-    Public Sub ConvertToMP3(outputDirectory As String)
-        Try
-            ' Get the list of video files in the output directory
-            Dim videoFiles = Directory.GetFiles(outputDirectory, "*.mp4")
 
-            ' Initialize the video converter
-            Dim converter As New FFMpegConverter()
+    Public Function GetLinkDetails(url As String) As YoutubeResponse
 
-            For Each videoFile In videoFiles
-                ' Generate the output MP3 file path by changing the extension
-                Dim audioOutputPath As String = Path.ChangeExtension(videoFile, ".mp3")
+        Dim apiUrl As String = $"https://www.youtube.com/oembed?url={url}&format=json"
 
-                ' Convert the video to MP3
-                converter.ConvertMedia(videoFile, audioOutputPath, Format.wmv)
+        Using client As New HttpClient()
+            ' Make the GET request
+            Dim response = client.GetStringAsync(apiUrl) ' Note: Using .Result for simplicity. In a real-world scenario, consider using async/await.
 
-                ' Delete the original video file
-                File.Delete(videoFile)
+            ' Parse the JSON response
 
-                MessageBox.Show("Conversion to MP3 completed.")
-            Next
-        Catch ex As Exception
-            MessageBox.Show("An error occurred during MP3 conversion: " & ex.Message)
-            End
-        End Try
-    End Sub
+            Dim responseData As New YoutubeResponse()
+
+            Try
+                responseData = JsonConvert.DeserializeObject(Of YoutubeResponse)(response.Result)
+            Catch ex As Exception
+                Return Nothing
+            End Try
+
+
+            Return responseData
+        End Using
+    End Function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

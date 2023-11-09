@@ -15,8 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NReco.VideoConverter" Version="1.2.1" />
-    <PackageReference Include="YoutubeExplode" Version="6.3.6" />
   </ItemGroup>
 
   <ItemGroup>
@@ -45,6 +46,10 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="secrets\" />
   </ItemGroup>
 
 </Project>
